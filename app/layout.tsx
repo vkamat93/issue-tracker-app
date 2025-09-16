@@ -2,6 +2,11 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
+import { Inter } from "next/font/google";
+import "@radix-ui/themes/styles.css";
+import { Theme } from "@radix-ui/themes";
+
+const inter = Inter({subsets: ['latin']})
 
 
 export const metadata: Metadata = {
@@ -16,9 +21,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
+      <body className={inter.className}>
+        <Theme>
         <Navbar />
         <main>{children}</main>
+        </Theme>
       </body>
     </html>
   );
